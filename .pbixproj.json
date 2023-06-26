@@ -1,0 +1,84 @@
+{
+  "version": "0.13",
+  "deployments": {
+    "Demo": {
+      "mode": "Dataset",
+      "source": {
+        "type": "File",
+        "path": "./AdventureWorks Sales.Dataset/model.bim"
+      },
+      "authentication": {
+        "type": "ServicePrincipal",
+        "tenantID":"8cc5ffdf-b1ef-4c56-a1b2-908c59b953d0",
+        "clientId":"f56d9e8a-5ae9-4a06-9a89-007c543162d6",
+        "clientSecret":"LKi8Q~gQZKYeiEVbyZ4KE15AByLcCtNgdJilSbVe"
+      },
+      "options": {
+        "refresh": {
+          "enabled": true,
+          "skipNewDataset": true,
+          "method": "XMLA",
+          "type": "Full", 
+          "objects": {
+          },
+          "ignoreRefreshPolicy": false,
+          "skipRefreshPolicyPartitions": true,
+          "tracing": {
+            "enabled": true,
+            "logEvents": {
+              "filter": [
+                "*|TabularRefresh|Partition",
+                "*|ReadData|Partition"
+              ]
+            },
+            "summary": {
+              "events": [
+                "TabularRefresh",
+                "Process",
+                "ReadData",
+                "ExecuteSql"
+              ],
+              "objectTypes": [
+                "Partition"
+              ],
+              "outPath": "refresh_stats.csv",
+              "console": true
+            }
+          }
+        },
+        "dataset": {
+          "replaceParameters": false,
+          "deployEmbeddedReport": false,
+          "applyRefreshPolicies": false,
+          "keepRefreshPolicyPartitions": true
+
+
+        }
+      },
+      "parameters": {
+        "[Version]": "1.1.0",
+        "Dataset_Name":"PBIX with pbip",
+        "Workspace":"Datasets",
+        "[Environment]": "{{ENVIRONMENT}}",
+        "[PBITOOLS_VERSION]": "{{PBITOOLS_VERSION}}"
+      },
+      "environments": {
+        "Development": {
+          "workspace": "{{Workspace}} [DEV]",
+          "displayName": "{{Dataset_Name}} [DEV]",
+          "refresh": {}
+        },
+        "UAT": {
+          "workspace": "Datasets [UAT]",
+          "displayName": "{{Dataset_Name}} [UAT]",
+          "refresh": {}
+        },
+        "Production": {
+          "workspace": "Datasets [PROD]",
+          "displayName": "{{Dataset_Name}} [PROD]",
+          "refresh": {}
+        }
+      }
+    }
+  }
+}  
