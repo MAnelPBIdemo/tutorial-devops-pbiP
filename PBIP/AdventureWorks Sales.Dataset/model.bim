@@ -28147,11 +28147,6 @@
             "value": "Table"
           }
         ],
-        "changedProperties": [
-          {
-            "property": "Name"
-          }
-        ],
         "columns": [
           {
             "name": "AddressLine1",
@@ -28667,7 +28662,7 @@
               "expression": [
                 "let",
                 "    Source = Sql.Databases(\"localhost\"),",
-                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016_EXT\"]}[Data],",
+                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016\"]}[Data],",
                 "    dbo_DimCustomer = AdventureWorksDW{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data]",
                 "in",
                 "    dbo_DimCustomer"
@@ -28683,10 +28678,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
           }
         ],
         "columns": [
@@ -29013,7 +29004,7 @@
               "expression": [
                 "let",
                 "    Source = Sql.Databases(\"localhost\"),",
-                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016_EXT\"]}[Data],",
+                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016\"]}[Data],",
                 "    dbo_DimDate = AdventureWorksDW{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
                 "in",
                 "    dbo_DimDate"
@@ -29411,7 +29402,7 @@
               "expression": [
                 "let",
                 "    Source = Sql.Databases(\"localhost\"),",
-                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016_EXT\"]}[Data],",
+                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016\"]}[Data],",
                 "    dbo_DimGeography = AdventureWorksDW{[Schema=\"dbo\",Item=\"DimGeography\"]}[Data]",
                 "in",
                 "    dbo_DimGeography"
@@ -31415,10 +31406,6 @@
         "name": "New countries",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
           }
@@ -31496,10 +31483,6 @@
           {
             "name": "PBI_ResultType",
             "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
           }
         ],
         "columns": [
@@ -32116,7 +32099,7 @@
               "expression": [
                 "let",
                 "    Source = Sql.Databases(\"localhost\"),",
-                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016_EXT\"]}[Data],",
+                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016\"]}[Data],",
                 "    dbo_DimProduct = AdventureWorksDW{[Schema=\"dbo\",Item=\"DimProduct\"]}[Data]",
                 "in",
                 "    dbo_DimProduct"
@@ -32221,7 +32204,7 @@
               "expression": [
                 "let",
                 "    Source = Sql.Databases(\"localhost\"),",
-                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016_EXT\"]}[Data],",
+                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016\"]}[Data],",
                 "    dbo_DimProductCategory = AdventureWorksDW{[Schema=\"dbo\",Item=\"DimProductCategory\"]}[Data]",
                 "in",
                 "    dbo_DimProductCategory"
@@ -32341,7 +32324,7 @@
               "expression": [
                 "let",
                 "    Source = Sql.Databases(\"localhost\"),",
-                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016_EXT\"]}[Data],",
+                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016\"]}[Data],",
                 "    dbo_DimProductSubcategory = AdventureWorksDW{[Schema=\"dbo\",Item=\"DimProductSubcategory\"]}[Data]",
                 "in",
                 "    dbo_DimProductSubcategory"
@@ -32925,6 +32908,12 @@
             "expression": "sum(Sales[SalesAmount])",
             "formatString": "#,0.###############\\ \"€\";-#,0.###############\\ \"€\";#,0.###############\\ \"€\"",
             "lineageTag": "9cccdac6-710c-4aa7-a1d3-183594f8c644"
+          },
+          {
+            "name": "Discount Amount",
+            "expression": "BLANK()",
+            "formatString": "0",
+            "lineageTag": "b28c3c79-66e0-4fbc-bcd1-2f8706118b22"
           }
         ],
         "partitions": [
@@ -32935,7 +32924,7 @@
               "expression": [
                 "let",
                 "    Source = Sql.Databases(\"localhost\"),",
-                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016_EXT\"]}[Data],",
+                "    AdventureWorksDW = Source{[Name=\"AdventureWorksDW2016\"]}[Data],",
                 "    dbo_FactInternetSales = AdventureWorksDW{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data],",
                 "    #\"Filtered Rows\" = Table.SelectRows(dbo_FactInternetSales, each [OrderDate] >= RangeStart and [OrderDate] < RangeEnd)",
                 "in",

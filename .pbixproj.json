@@ -5,7 +5,7 @@
       "mode": "Dataset",
       "source": {
         "type": "File",
-        "path": "./AdventureWorks Sales.Dataset/model.bim"
+        "path": "./PBIP/AdventureWorks Sales.Dataset/model.bim"
       },
       "authentication": {
         "type": "ServicePrincipal",
